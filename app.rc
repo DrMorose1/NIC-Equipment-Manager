@@ -1,0 +1,35 @@
+#include <windows.h>
+#include "resource.h"
+
+IDI_APP_ICON ICON "NIC-Management-GUI.ico"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,3,3,0
+ PRODUCTVERSION 1,3,3,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+ FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription", "NIC Equipment Manager\0"
+            VALUE "FileVersion", "1.3.3\0"
+            VALUE "InternalName", "NICEquipmentManager\0"
+            VALUE "OriginalFilename", "NICEquipmentManager.exe\0"
+            VALUE "ProductName", "NIC Equipment Manager\0"
+            VALUE "ProductVersion", "1.3.3\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200
+    END
+END
