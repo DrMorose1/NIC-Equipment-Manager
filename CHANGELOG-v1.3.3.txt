@@ -1,0 +1,36 @@
+NIC Equipment Manager v1.3.3
+
+Advanced Tools
+- Replaces the main-window shell-button concept with a dedicated companion workspace.
+- Adds a Tools > Open Advanced Tools command so the workspace is reachable even
+  when the main window is too short to show the compact Advanced Tools panel.
+- Preserves selected NIC and device context in the companion window.
+- Adds one-click local diagnostics: ipconfig /all, route print -4, arp -a, netstat -ano.
+- Adds target-aware diagnostics: tracert -d, pathping -n, nslookup.
+- Adds an elevated free-form command field and captured output pane.
+- Adds Copy, Clear, and Save Output controls.
+
+Link speed
+- Disconnected, zero, sentinel, and implausibly large link speeds now display
+  as Unknown instead of exposing Windows API sentinel values as enormous Gbps figures.
+
+Main window
+- Keeps the compact Advanced Tools area when space permits, but now uses it to
+  open the separate Advanced Tools workspace.
+
+Layout correction:
+- Main window minimum tracking size now guarantees the full 1180x745 client area rather than treating those values as the outer window size.
+- Default startup size uses the same client-area calculation, preventing right-side controls from being clipped at the minimum size.
+Layout correction:
+- Fixed clipping when the maximized client area is narrower than the DPI-scaled design width.
+- Main-window controls now contract with negative resize deltas instead of remaining at their original width.
+- Minimum manual resize protection remains in place.
+
+
+- Replaced native group-box captions with opaque section-header labels to prevent dark-theme/high-DPI border overdraw.
+- Fixed static IPv4 apply when the requested address already exists on the selected adapter (for example an existing APIPA/link-local address). Static apply now clears existing IPv4 addresses and any default route on the selected interface before creating the requested static configuration.
+
+DHCP/static reliability update:
+- Static configuration now clears the persistent EnableDHCP registry flag before applying a static IPv4 profile. This supports pre-staging addresses on disconnected adapters where Set-NetIPInterface alone may leave DHCP enabled.
+- Returning an adapter to DHCP restores the persistent EnableDHCP registry flag.
+- DHCP and static operations now verify the resulting Windows interface state before reporting success.
